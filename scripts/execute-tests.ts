@@ -33,7 +33,7 @@ function parseArgs(argv: string[], rootDir: string): RunOptions {
     }
     if (arg === '--help' || arg === '-h') {
       console.log(
-        `Usage: node scripts/execute-tests.ts [options]\n\nOptions:\n  -l, --list              List discovered test files and exit\n  -f, --filter <regex>    Only run tests whose path matches regex\n  -h, --help              Show help\n`
+        `Usage: bun scripts/execute-tests.ts [options]\n\nOptions:\n  -l, --list              List discovered test files and exit\n  -f, --filter <regex>    Only run tests whose path matches regex\n  -h, --help              Show help\n`
       );
       process.exit(0);
     }
@@ -63,7 +63,7 @@ async function findTestFiles(dir: string): Promise<string[]> {
 
 async function runOneTest(rootDir: string, testFile: string): Promise<number> {
   return await new Promise((resolve, reject) => {
-    const child = spawn('node', [testFile], {
+    const child = spawn('bun', [testFile], {
       cwd: rootDir,
       stdio: 'inherit',
     });

@@ -318,7 +318,6 @@ describe('shouldInstallInternalSkills', () => {
   const originalEnv = process.env;
 
   beforeEach(() => {
-    vi.resetModules();
     process.env = { ...originalEnv };
   });
 

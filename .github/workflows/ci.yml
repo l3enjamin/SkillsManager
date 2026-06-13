@@ -20,24 +20,18 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v6
 
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: lts/*
-          cache: pnpm
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Type check
-        run: pnpm build
+        run: bun run build
 
       - name: Prettier
         if: matrix.os == 'ubuntu-latest'
-        run: pnpm format:check
+        run: bun run format:check
 
       - name: Tests
-        run: pnpm test
+        run: bun test
