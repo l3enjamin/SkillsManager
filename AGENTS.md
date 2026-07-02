@@ -121,11 +121,11 @@ bun run dev update
 bun run dev init my-skill
 
 # Run all tests
-bun test
+bun run test
 
 # Run specific test file(s)
-bun test tests/sanitize-name.test.ts
-bun test tests/skill-matching.test.ts tests/source-parser.test.ts
+bun run test tests/sanitize-name.test.ts
+bun run test tests/skill-matching.test.ts tests/source-parser.test.ts
 
 # Type check
 bun run type-check

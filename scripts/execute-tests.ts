@@ -63,7 +63,7 @@ async function findTestFiles(dir: string): Promise<string[]> {
 
 async function runOneTest(rootDir: string, testFile: string): Promise<number> {
   return await new Promise((resolve, reject) => {
-    const child = spawn('bun', [testFile], {
+    const child = spawn('bun', ['run', 'vitest', 'run', testFile], {
       cwd: rootDir,
       stdio: 'inherit',
     });

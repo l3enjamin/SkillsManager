@@ -11,13 +11,13 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 // Mock dependencies
-vi.mock('../src/git.ts', () => ({ cloneRepo: vi.fn() }));
-vi.mock('../src/skills.ts', () => ({ discoverSkills: vi.fn() }));
-vi.mock('../src/blob.ts', () => ({ fetchRepoTree: vi.fn(), findSkillMdPaths: vi.fn() }));
-vi.mock('../src/local-lock.ts', () => ({ readLocalLock: vi.fn(), computeSkillFolderHash: vi.fn() }));
-vi.mock('../src/skill-lock.ts', () => ({ readSkillLock: vi.fn() }));
-vi.mock('../src/remove.ts', () => ({ removeCommand: vi.fn() }));
-vi.mock('@clack/prompts', () => ({ confirm: vi.fn() }));
+vi.mock('../src/git.ts');
+vi.mock('../src/skills.ts');
+vi.mock('../src/blob.ts');
+vi.mock('../src/local-lock.ts');
+vi.mock('../src/skill-lock.ts');
+vi.mock('../src/remove.ts');
+vi.mock('@clack/prompts');
 
 // Mock fs to prevent actual file checks during test
 vi.mock('fs', async (importOriginal) => {
