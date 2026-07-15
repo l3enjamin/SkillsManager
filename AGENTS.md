@@ -87,7 +87,7 @@ tests/
 3. For each skill, call `fetchSkillFolderHash(source, skillPath, token)`. Optional auth token is sourced from `GITHUB_TOKEN`, `GH_TOKEN`, or `gh auth token` to improve rate limits.
 4. `fetchSkillFolderHash` calls GitHub Trees API directly (`/git/trees/<branch>?recursive=1` for `main`, then `master` fallback)
 5. Compare latest folder tree SHA with lock file `skillFolderHash`; mismatch means update available
-6. `skills update` reinstalls changed skills by invoking the current CLI entrypoint directly (`node <repo>/bin/cli.mjs add <source-tree-url> -g -y`) to avoid nested npm exec/npx behavior
+6. `skills update` reinstalls changed skills by invoking the current CLI entrypoint directly (`bun <repo>/bin/cli.mjs add <source-tree-url> -g -y`) to avoid nested npm exec/npx behavior
 
 ### Lock File Compatibility
 
@@ -108,49 +108,49 @@ If reading an older lock file version, it's wiped. Users must reinstall skills t
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Build
-pnpm build
+bun run build
 
 # Test locally
-pnpm dev add vercel-labs/agent-skills --list
-pnpm dev experimental_sync
-pnpm dev check
-pnpm dev update
-pnpm dev init my-skill
+bun run dev add vercel-labs/agent-skills --list
+bun run dev experimental_sync
+bun run dev check
+bun run dev update
+bun run dev init my-skill
 
 # Run all tests
-pnpm test
+bun run test
 
 # Run specific test file(s)
-pnpm test tests/sanitize-name.test.ts
-pnpm test tests/skill-matching.test.ts tests/source-parser.test.ts
+bun run test tests/sanitize-name.test.ts
+bun run test tests/skill-matching.test.ts tests/source-parser.test.ts
 
 # Type check
-pnpm type-check
+bun run type-check
 
 # Format code
-pnpm format
+bun run format
 
 # Check formatting
-pnpm format:check
+bun run format:check
 
 # Validate and sync agent metadata/docs
-pnpm run -C scripts validate-agents.ts
-pnpm run -C scripts sync-agents.ts
+bun scripts/validate-agents.ts
+bun scripts/sync-agents.ts
 ```
 
 ## Code Style
 
-This project uses Prettier for code formatting. **Always run `pnpm format` before committing changes** to ensure consistent formatting.
+This project uses Prettier for code formatting. **Always run `bun run format` before committing changes** to ensure consistent formatting.
 
 ```bash
 # Format all files
-pnpm format
+bun run format
 
 # Check formatting without fixing
-pnpm format:check
+bun run format:check
 ```
 
 CI will fail if code is not properly formatted.
@@ -160,7 +160,7 @@ CI will fail if code is not properly formatted.
 ```bash
 # 1. Bump version in package.json
 # 2. Build
-pnpm build
+bun run build
 # 3. Publish
 npm publish
 ```
@@ -168,5 +168,5 @@ npm publish
 ## Adding a New Agent
 
 1. Add the agent definition to `src/agents.ts`
-2. Run `pnpm run -C scripts validate-agents.ts` to validate
-3. Run `pnpm run -C scripts sync-agents.ts` to update README.md and package keywords
+2. Run `bun scripts/validate-agents.ts` to validate
+3. Run `bun scripts/sync-agents.ts` to update README.md and package keywords
