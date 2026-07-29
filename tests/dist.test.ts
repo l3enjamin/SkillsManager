@@ -10,7 +10,7 @@ describe('dist build', () => {
     execSync('bun run build', { cwd: rootDir, stdio: 'pipe' });
 
     // Run the CLI - should exit cleanly with help output
-    const result = execSync('bun dist/cli.mjs --help', {
+    const result = execSync('bun bin/cli.mjs --help', {
       cwd: rootDir,
       stdio: 'pipe',
       encoding: 'utf-8',

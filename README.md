@@ -3,7 +3,7 @@
 The CLI for the open agent skills ecosystem.
 
 <!-- agent-list:start -->
-Supports **OpenCode**, **Claude Code**, **Codex**, **Cursor**, and [67 more](#supported-agents).
+Supports **OpenCode**, **Claude Code**, **Codex**, **Cursor**, and [70 more](#supported-agents).
 <!-- agent-list:end -->
 
 [![skills.sh](https://skills.sh/b/vercel-labs/skills)](https://skills.sh/vercel-labs/skills)
@@ -139,6 +139,9 @@ npx skills find
 
 # Search by keyword
 npx skills find typescript
+
+# Search across every repository owned by an organization or user
+npx skills find react --owner vercel
 ```
 
 ### `skills update`
@@ -263,17 +266,20 @@ Skills can be installed to any of these agents:
 | Deep Agents | `deepagents` | `.agents/skills/` | `~/.deepagents/agent/skills/` |
 | Devin for Terminal | `devin` | `.devin/skills/` | `~/.config/devin/skills/` |
 | Droid | `droid` | `.factory/skills/` | `~/.factory/skills/` |
+| Eve | `eve` | `agent/skills/` | N/A (project-only) |
 | Firebender | `firebender` | `.agents/skills/` | `~/.firebender/skills/` |
 | ForgeCode | `forgecode` | `.forge/skills/` | `~/.forge/skills/` |
 | Gemini CLI | `gemini-cli` | `.agents/skills/` | `~/.gemini/skills/` |
 | GitHub Copilot | `github-copilot` | `.agents/skills/` | `~/.copilot/skills/` |
 | Goose | `goose` | `.goose/skills/` | `~/.config/goose/skills/` |
+| Grok Build | `grok` | `.grok/skills/` | `~/.grok/skills/` |
 | Hermes Agent | `hermes-agent` | `.hermes/skills/` | `~/.hermes/skills/` |
 | inference.sh | `inference-sh` | `.inferencesh/skills/` | `~/.inferencesh/skills/` |
 | Jazz | `jazz` | `.jazz/skills/` | `~/.jazz/skills/` |
 | Junie | `junie` | `.junie/skills/` | `~/.junie/skills/` |
 | iFlow CLI | `iflow-cli` | `.iflow/skills/` | `~/.iflow/skills/` |
 | Kilo Code | `kilo` | `.kilocode/skills/` | `~/.kilocode/skills/` |
+| Kimchi | `kimchi` | `.kimchi/skills/` | `~/.config/kimchi/harness/skills/` |
 | Kiro CLI | `kiro-cli` | `.kiro/skills/` | `~/.kiro/skills/` |
 | Kode | `kode` | `.kode/skills/` | `~/.kode/skills/` |
 | Lingma | `lingma` | `.lingma/skills/` | `~/.lingma/skills/` |
@@ -297,6 +303,7 @@ Skills can be installed to any of these agents:
 | Trae | `trae` | `.trae/skills/` | `~/.trae/skills/` |
 | Trae CN | `trae-cn` | `.trae/skills/` | `~/.trae-cn/skills/` |
 | Windsurf | `windsurf` | `.windsurf/skills/` | `~/.codeium/windsurf/skills/` |
+| ZCode | `zcode` | `.zcode/skills/` | `~/.zcode/skills/` |
 | Zencoder, Zenflow | `zencoder`, `zenflow` | `.zencoder/skills/` | `~/.zencoder/skills/` |
 | Neovate | `neovate` | `.neovate/skills/` | `~/.neovate/skills/` |
 | Pochi | `pochi` | `.pochi/skills/` | `~/.pochi/skills/` |
@@ -394,14 +401,17 @@ to also discover `SKILL.md` files outside these container directories
 - `.crush/skills/`
 - `.devin/skills/`
 - `.factory/skills/`
+- `agent/skills/`
 - `.forge/skills/`
 - `.goose/skills/`
+- `.grok/skills/`
 - `.hermes/skills/`
 - `.inferencesh/skills/`
 - `.jazz/skills/`
 - `.junie/skills/`
 - `.iflow/skills/`
 - `.kilocode/skills/`
+- `.kimchi/skills/`
 - `.kiro/skills/`
 - `.kode/skills/`
 - `.lingma/skills/`
@@ -422,6 +432,7 @@ to also discover `SKILL.md` files outside these container directories
 - `.tinycloud/skills/`
 - `.trae/skills/`
 - `.windsurf/skills/`
+- `.zcode/skills/`
 - `.zencoder/skills/`
 - `.neovate/skills/`
 - `.pochi/skills/`
@@ -531,4 +542,4 @@ Telemetry is automatically disabled in CI environments.
 
 ## License
 
-MIT
+This project is licensed under the [MIT License](LICENSE).
